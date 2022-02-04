@@ -1,7 +1,6 @@
 package assignment
 
 import (
-	"fmt"
 	"math"
 	"sort"
 	"strings"
@@ -59,9 +58,7 @@ func StringMask(s string, n uint) string {
 func WordSplit(arr [2]string) string {
 	spliced := strings.Split(arr[1], ",")
 	founded := ""
-	i:=0
 	for _, s := range spliced {
-		i++
 		if strings.Contains(arr[0], s) {
 			sFirst := s + founded
 			fFirst := founded + s
@@ -72,7 +69,6 @@ func WordSplit(arr [2]string) string {
 			founded = s
 		}
 	}
-	fmt.Println(i)
 	return "not possible"
 }
 
