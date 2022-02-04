@@ -152,12 +152,15 @@ func TestStringMask(t *testing.T) {
 		{"!mysecret*", 2, "!m********", "standard mask(no spec)"},
 		{"", 2, "*", "empty string returns one char masked"},
 		{"a", 1, "*", "one char returns  one char masked "},
+		{"a", 6, "*", "one char returns  one char masked v1 "},
 		{"a", 0, "*", "one char with 0 returns  one char masked "},
 		{"string", 0, "******", "when count 0 returns all chars masked"},
 		{"string", 3, "str***", "standard mask(no special Char)"},
 		{"string", 5, "strin*", "standard mask(no special Char) to given len"},
 		{"string", 6, "******", "standard mask to length size"},
 		{"string", 7, "******", "if bigger then len all chars masked"},
+		{"faikyıldırım", 166, "************", "if bigger then len all chars masked v1"},
+		{"faik yıldırım", 4,  "faik*********", "with space"},
 		{"s*r*n*", 3, "s*r***", "mask no matter text include(mask char)"},
 	}
 	for _, c := range cases {
